@@ -6,10 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by sandy on 26/10/2016.
@@ -76,4 +78,33 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // pop-up message
+        if (item.getItemId() == R.id.about) {
+            Intent intent
+                    = new Intent(
+                    this,
+                    AboutActivity.class);
+            startActivity(intent);
+
+            Toast.makeText(this,
+                    "About was clicked",
+                    Toast.LENGTH_SHORT).show();
+
+        } else if(item.getItemId() == R.id.settings) {
+            Intent intent
+                    = new Intent(
+                    this,
+                    SettingsActivity.class);
+            startActivity(intent);
+
+            Toast.makeText(this,
+                    "Settings was clicked",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        return true;
+    }
 }
+
