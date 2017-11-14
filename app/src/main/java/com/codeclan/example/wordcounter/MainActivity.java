@@ -40,23 +40,31 @@ public class MainActivity extends AppCompatActivity {
 //        int numberOfWords = WordCounter.getCount(textToScan);
 //
 //        textView.setText(Integer.toString(numberOfWords) + " words entered");
-
-        Intent intent = new Intent(this, CountActivity.class);
-
         String textToScan = editText.getText().toString();
         int numberOfWords = WordCounter.getCount(textToScan);
 
-        intent.putExtra("answer", numberOfWords);
 
+        Intent intent = new Intent(this, CountActivity.class);
+        intent.putExtra("answer", numberOfWords);
         startActivity(intent);
+
+
     }
 
     public void onConcordanceButtonClick(View view) {
-        String textToScan = editText.getText().toString();
-        Log.d("WordCounter", "Creating concordance for : '" + textToScan + "'");
+//        String textToScan = editText.getText().toString();
+//        Log.d("WordCounter", "Creating concordance for : '" + textToScan + "'");
+//
+//        WordCounterExtended wordCounter = new WordCounterExtended(textToScan);
+//        textView.setText(wordCounter.toString());
 
+        String textToScan = editText.getText().toString();
         WordCounterExtended wordCounter = new WordCounterExtended(textToScan);
-        textView.setText(wordCounter.toString());
+
+        Intent intent = new Intent(this, ConcordanceActivity.class);
+        intent.putExtra("answer", wordCounter.toString());
+
+        startActivity(intent);
     }
 
 }

@@ -27,7 +27,7 @@ public class WordCounterExtended {
         }
     }
 
-    public int getCount() {
+    public int getCount(String sentence) {
         return this.words.length;
     }
 
