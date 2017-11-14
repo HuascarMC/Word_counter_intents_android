@@ -56,19 +56,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onConcordanceButtonClick(View view) {
-//        String textToScan = editText.getText().toString();
-//        Log.d("WordCounter", "Creating concordance for : '" + textToScan + "'");
-//
-//        WordCounterExtended wordCounter = new WordCounterExtended(textToScan);
-//        textView.setText(wordCounter.toString());
-
         String textToScan = editText.getText().toString();
+        Log.d("WordCounter", "Creating concordance for : '" + textToScan + "'");
+
         WordCounterExtended wordCounter = new WordCounterExtended(textToScan);
-
-        Intent intent = new Intent(this, ConcordanceActivity.class);
-        intent.putExtra("answer", wordCounter.toString());
-
-        startActivity(intent);
+        textView.setText(wordCounter.toString());
     }
 
     @Override
@@ -82,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // pop-up message
         if (item.getItemId() == R.id.about) {
+            Log.d("Worked", "worked");
+
             Intent intent
                     = new Intent(
                     this,
@@ -93,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
 
         } else if(item.getItemId() == R.id.settings) {
+            Log.d("Worked", "worked");
             Intent intent
                     = new Intent(
                     this,
@@ -103,8 +98,9 @@ public class MainActivity extends AppCompatActivity {
                     "Settings was clicked",
                     Toast.LENGTH_SHORT).show();
         }
-
         return true;
     }
+
+
 }
 
