@@ -1,5 +1,6 @@
 package com.codeclan.example.wordcounter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -33,12 +34,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onWordCountButtonClick(View view) {
-        String textToScan = editText.getText().toString();
-        Log.d("WordCounter", "Counting words in : '" + textToScan + "'");
+//        String textToScan = editText.getText().toString();
+//        Log.d("WordCounter", "Counting words in : '" + textToScan + "'");
+//
+//        int numberOfWords = WordCounter.getCount(textToScan);
+//
+//        textView.setText(Integer.toString(numberOfWords) + " words entered");
 
+        Intent intent = new Intent(this, CountActivity.class);
+
+        String textToScan = editText.getText().toString();
         int numberOfWords = WordCounter.getCount(textToScan);
 
-        textView.setText(Integer.toString(numberOfWords) + " words entered");
+        intent.putExtra("answer", numberOfWords);
+
+        startActivity(intent);
     }
 
     public void onConcordanceButtonClick(View view) {
